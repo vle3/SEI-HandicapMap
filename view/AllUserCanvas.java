@@ -13,6 +13,6 @@ public class AllUserCanvas extends JPanel {
     {
         this.panel = panel;
         setBackground(Color.black);
-        setPreferredSize(new Dimension(600,500));
+        setPreferredSize(new Dimension(900,500));
     }
 }

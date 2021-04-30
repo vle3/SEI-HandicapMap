@@ -5,11 +5,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+
+import controller.MapListener;
+import model.IRender;
+import model.UCOMap;
+import model.images.ImageStore;
+
 import javax.swing.ButtonGroup;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.util.ListResourceBundle;
+import java.util.Map;
 
 public class HandicapUserPanel {
     private JFrame window;
@@ -37,6 +45,7 @@ public class HandicapUserPanel {
         
         canvas = new HandicapUserCanvas(this);
         cp.add(canvas);
+        canvas.setImagePath("model/images/default.jpg");
 
         JPanel southPanel = new JPanel();
         cp.add(BorderLayout.SOUTH, southPanel);
@@ -73,6 +82,9 @@ public class HandicapUserPanel {
         buttonPanel.add(generateButton);
         buttonPanel.add(quitButton);
 
+        MapListener listener = new MapListener(this);
+        generateButton.addActionListener(listener);
+
         quitButton.addActionListener(e -> {
             window.getContentPane().removeAll();
             var menu = new MenuScreen(window);
@@ -81,6 +93,31 @@ public class HandicapUserPanel {
             window.revalidate();
         });
 
+    }
+
+    public JRadioButton getfNighButton() {
+        return fNighButton;
+    }
+    public JRadioButton getfCSBuldingButton() {
+        return fCSBuldingButton;
+    }
+    public JRadioButton getfMusicBuldingButton() {
+        return fMusicBuldingButton;
+    }
+    public JRadioButton gettNighButton() {
+        return tNighButton;
+    }
+    public JRadioButton gettCSBuldingButton() {
+        return tCSBuldingButton;
+    }
+    public JRadioButton gettMusicBuldingButton() {
+        return tMusicBuldingButton;
+    }
+    public JButton getGenerateButton() {
+        return generateButton;
+    }
+    public HandicapUserCanvas getCanvas() {
+        return canvas;
     }
     
 }

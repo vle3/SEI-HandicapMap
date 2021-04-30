@@ -5,13 +5,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-public class Map implements IRender {
+public class UCOMap implements IRender {
     private final int X = 0;
     private final int Y = 0;
     private String name;
     private BufferedImage image;
 
-    public Map(String name){
+    public UCOMap(String name){
         this.name = name;
     }
 
@@ -22,13 +22,16 @@ public class Map implements IRender {
     public BufferedImage getImage() {
         return image;
     }
-
-    @Override 
-    public Rectangle getBoundingBox()
-    {
-        return null;
-        
+    public void setImage(BufferedImage image) {
+        this.image = image;
     }
+
+    // @Override 
+    // public Rectangle getBoundingBox()
+    // {
+    //     return new Rectangle(X,Y,image.getWidth(),image.getHeight());
+        
+    // }
 
     @Override
     public void render(Graphics2D g2) {
